@@ -82,10 +82,10 @@ function addBookToLibrary(){
 
 btn.addEventListener('click', e => {
 
-  let title = document.querySelector('#titulo').value;
-  let author = document.querySelector('#autor').value;
-  let year = document.querySelector('#ano').value;
-  let read
+  this.title = document.querySelector('#titulo').value;
+  this.author = document.querySelector('#autor').value;
+  this.year = document.querySelector('#ano').value;
+  this.read
   
   if(title === '' || author === '') {
     alerta()
@@ -105,32 +105,32 @@ btn.addEventListener('click', e => {
   
  
  
-  h2.innerText = `${title}`
+  h2.innerText = `${this.title}`
   
 
 
   if(h2.innerText)
 
   div.appendChild(h3)
-  h3.innerText = `${author}`
+  h3.innerText = `${this.author}`
   div.appendChild(h4)
-  h4.innerText = `${year}`
+  h4.innerText = `${this.year}`
 
  
 
   if(lido.checked){
     div.classList.add('test2')
-    read = true
+    this.read = true
     let p = document.createElement('p')
     h4.appendChild(p)
     p.innerText = 'Lido'
     p.style.color = 'black'
   } else {
-    read = false
+    this.read = false
   }
  
 
-  myLibrary.push(new Book(title, author, year, read))
+  myLibrary.push(new Book(this.title, this.author, this.year, this.read))
   show()
   
   })
