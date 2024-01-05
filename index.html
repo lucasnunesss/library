@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biblioteca</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <h1>BIBLIOTECA NACIONAL</h1>
+    <form action="">
+      <label for="">Titulo
+      <input type="text" name="" id="titulo" ></label>
+      <label for="">Autor
+      <input type="text" name="" id="autor" ></label>
+
+      <div class="check">
+      <label for="">Ano
+      <input id="ano" type="number" min="1900" max="2024" step="1" value="2023" /></label>
+
+      
+        <p>Terminou de ler?</p>
+            <input type="radio" name="read" id="readYes">
+            <label for="">Sim</label>
+            <input type="radio" name="read" id="readNo" checked>
+            <label for="">Não</label>
+      </div>
+    </form>
+    <button class="sub">Adicionar Livro</button>
+    <button class="del">Remover Livro</button>
+    <button class="edit">Editar</button>
+    <div class="content">
+     
+    </div>
+  </main>
+
+  <script src="index.js"></script>
+</body>
+</html>
