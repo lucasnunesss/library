@@ -74,6 +74,7 @@ function show() {
 
 function alerta(){
   alert('Não pode haver espaço em branco')
+  return show()
 }
 
 function addBookToLibrary(){
