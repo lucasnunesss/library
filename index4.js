@@ -22,6 +22,7 @@ class Book {
   this.year = year,
   this.read = read
 
+    
   }
   
   
@@ -41,13 +42,14 @@ class Book {
   }
 
   show = () => {
-    
+ 
     this.content = document.querySelector('.content')
-    this.content.innerText = ''
-   
-
+    this.content.innerHTML = ''
+    
+  
       for (let i = 0; i < Book.#myLibrary.length; i++){
-     
+       
+
       this.div = document.createElement('div')
       this.div.classList.add('teste')
       this.h2 = document.createElement('h2')
@@ -70,11 +72,13 @@ class Book {
           this.p.style.color = 'black'
         }
       
+        
       }
      pickBook()
       this.#deleteBook()
-      this.#addBooktoLibrary()
+    
       this.#editBook()
+    
   }
 
   #addBooktoLibrary = () => {
@@ -134,8 +138,10 @@ class Book {
       
         Book.#myLibrary.push(new Book(this.title, this.author, this.year, this.read))
         console.log(Book.#myLibrary)
+        this.content.innerHTML = '';
         this.show()
         })
+       
   }   
   
   #deleteBook = () => {
@@ -189,7 +195,7 @@ class Book {
   
               
               if(this.input[0].value === '' || this.input[1].value === ''){
-                return 
+                return this.show()
                }
            
                 Book.#myLibrary[i].title = this.input[0].value
@@ -214,6 +220,10 @@ class Book {
     })
   })
   }
+
+  addBook = () => {
+    this.#addBooktoLibrary()
+  }
   
 }
         
@@ -222,7 +232,7 @@ class Book {
 const pickBook = () => {
 
   const edit = document.querySelector('.edit')
-  this.pickDiv = divGlobal()
+  let pickDiv = divGlobal()
   let btn = btnGlobal()
   pickDiv.forEach((item) => {
 
@@ -242,6 +252,8 @@ const pickBook = () => {
     })
    
   })
+
+ 
  
 }
 
@@ -249,5 +261,6 @@ const pickBook = () => {
 const pick = (function (){
   const teste = new Book()
   Book.internalAddBooks()
+  teste.addBook()
   return teste.show()
 })()
