@@ -1,75 +1,117 @@
-const content = document.querySelector('.content')
-const input = document.querySelectorAll('input')
-const btn = document.querySelector('.sub')
-const del = document.querySelector('.del')
+//Using Class
+const bot = () => {
+  const del = document.querySelectorAll('.teste')
+  return del
+}
 
+const pickContent = () => {
+  this.content = document.querySelector('.content')
+  content.innerText = ''
+}
 
-const myLibrary = [];
-
-function Book(title, author, year, read, id) {
-  // the constructor...
-  this.title = title,
-  this.author = author,
-  this.year = year,
-  this.read = read
-  this.id = id
-          
+class Book {
+  #myLibrary = []
+  constructor(title, author, year, read){
+    this.#myLibrary.title = title
+    this.#myLibrary.author = author
+    this.#myLibrary.year = year
+    this.#deleteItem()
+    this.#selectItem()
   }
-
-
-
-
-
-
-
-
-myLibrary.push(new Book('Grande Sertão: Veredas', 'Guimarães Rosa', 1956, true, 0))
-myLibrary.push(new Book('Dom Casmurro', 'Machado de Assis', 1899, true, 1))
-myLibrary.push(new Book('Memórias póstumas de Brás Cubas', 'Machado de Assis', 1881, true, 2))
-myLibrary.push(new Book('O cortiço', 'Aluísio Azevedo', 1890, false, 3))
-myLibrary.push(new Book('Os sertões', 'Euclides da Cunha', 1902, true, 4))
-myLibrary.push(new Book('Macunaíma', ' Mário de Andrade', 1928, true, 5))
-myLibrary.push(new Book('A Paixão Segundo G.H.', 'Clarice Lispector', 1964, false, 6))
-myLibrary.push(new Book('São Bernardo', 'Graciliano Ramos', 1934, false, 7))
-myLibrary.push(new Book('Vidas Secas', 'Graciliano Ramos', 1938, true, 8))
-myLibrary.push(new Book('Angústia', 'Graciliano Ramos', 1936, false, 9))
-
-
-
-
-
-
-
-
-function create(){
   
-  for (let i = 0; i < myLibrary.length; i++){
 
-    let div = document.createElement('div')
-    let h2 = document.createElement('h2')
-    let h3 = document.createElement('h3')
-    let h4 = document.createElement('h4')
-    div.classList.add('teste')
-    content.appendChild(div)
-    div.appendChild(h2)
-    
+  show = () => {
+    this.content = document.querySelector('.content')
 
-    console.log('oi')
-    console.log(myLibrary[i])
-    h2.innerText = `${myLibrary[i].title}`
-    console.log(h2)
-    div.appendChild(h3)
-    h3.innerText = `${myLibrary[i].author}`
-    div.appendChild(h4)
-    h4.innerText = `${myLibrary[i].year}`
-    
-    if(myLibrary[i].read === true){
-      div.classList.add('test2')
-    
-    }
+
+    this.#myLibrary.title = document.querySelector('#titulo').value;
+    return   this.#myLibrary.title
 
   }
+  author = () => {
+  
+    this.#myLibrary.author = document.querySelector('#autor').value;
+    return  this.#myLibrary.author
+  }
+
+  year = () => {
+   
+    this.#myLibrary.year =  document.querySelector('#ano').value;
+    return this.#myLibrary.year
+  }
+ 
+  #selectItem = () => {
+    console.log('oi')
+   this.del = bot()
+   this.edit = document.querySelector('.edit')
+
+   this.del.forEach((item) => {
+    item.addEventListener('click', e => {
+      item.classList.toggle('delete')
+      if(item.classList.contains('delete')){
+        btn.classList.add('edit')
+      } else{
+        btn.classList.remove('edit')
+      }
+           this.edit.display = 'inline'
+   })
+  
+   })
+  }
+  
+  #deleteItem = () => {
+    this.del1 = document.querySelector('.del')
+ 
+    this.del1.addEventListener('click', e => {
+      this.list = bot()
+    
+      this.list.forEach((item) => {
+        for(let i = 0; i <= this.#myLibrary.length; i++){
+          if(item.classList.contains('delete') && this.#myLibrary.title === item.firstChild.textContent){
+            let arr = this.#myLibrary.splice(i, 1)
+            console.log(arr)
+            item.remove()
+            this.#selectItem()
+            btn.classList.remove('edit')
+            pickContent()
+          }
+        }
+      })
+    })
+  }
+     
     }
+ // }
 
 
-create()
+
+const book = () => {
+  this.content = document.querySelector('.content')
+    
+  
+
+
+  
+    this.btn = document.querySelector('.sub')
+    btn.addEventListener('click', e => {
+      this.teste = new Book()
+      this.div = document.createElement('div')
+      content.appendChild(this.div)
+      div.classList.add('teste')
+      this.h2 = document.createElement('h2')
+      this.h2.innerText = ''
+      this.div.appendChild(this.h2)
+      this.h3 = document.createElement('h3')
+      this.h4 = document.createElement('h4')
+      h2.innerText = teste.show()
+      div.appendChild(h3)
+      h3.innerText = teste.author()
+      div.appendChild(h4)
+     h4.innerText = teste.year()
+    })
+    
+
+}
+
+book()
+

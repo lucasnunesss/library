@@ -101,8 +101,13 @@ form > label > input[type='number']{
 
   background-color: pink;
 }
-
+.oi{
+  color: red;
+}
 .edit{
   display: none;
 }
 
+.a {
+  display: none;
+}
